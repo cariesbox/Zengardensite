@@ -1,0 +1,99 @@
+/* VARIABLES */
+@import url("https://fonts.googleapis.com/css2?family=Exo+2&family=Rubik+Vinyl");
+/* ATOMS - smaller pieces */
+body {
+  background-color: #DEECDA;
+}
+
+/* MOLECULES */ /* ORGANISMS */ /* Pattern-Library Stylesheet */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #DEECDA;
+  padding: 5%;
+}
+
+body {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1em;
+  background-color: #309E6D;
+  margin: 0;
+  padding: 1em;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Rubik Vinyl", cursive;
+}
+
+section {
+  background-color: white;
+  padding: 1em;
+  margin: 1em;
+}
+
+.colors {
+  display: flex;
+  flex-flow: row wrap;
+}
+.colors > h3 {
+  width: 100%;
+  flex: 1 0 100%;
+}
+.colors > figure {
+  margin: 0;
+  flex: 1 1;
+}
+
+.swatch {
+  width: 100%;
+  height: 100px;
+  border: 1px solid;
+}
+
+.primary {
+  background-color: #309E6D;
+}
+
+.accent1 {
+  background-color: #106C42;
+}
+
+.accent2 {
+  background-color: #5BB527;
+}
+
+.accent3 {
+  background-color: #E56B44;
+}
+
+.accent4 {
+  background-color: #C93565;
+}
+
+.text-dark {
+  background-color: #000;
+}
+
+.element {
+  border: 1px solid;
+  margin: 0.5em;
+  padding: 1em;
+}
+
+.uppercase {
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.uppercase-light {
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFF;
+}
+
+/*# sourceMappingURL=pattern-styles.css.map */
