@@ -1,0 +1,444 @@
+// Framework of Site - Grid, Flexbox, etc.
+
+@use 'variables' as *;
+@use 'mixins';
+
+
+/* Naming Grid Areas */
+
+// page-wrapper grid area
+.intro { grid-area: intro; }
+.main { grid-area: main; }
+.sidebar { grid-area: sidebar; }
+
+// intro grid area
+header { grid-area: header; }
+.summary { grid-area: summary; }
+.preamble { grid-area: enlightenment; }
+
+// header grid area
+.intro h1 { grid-area: h1; }
+.intro h2 { grid-area: h2; }
+
+// main grid area
+.explanation { grid-area: explanation; }
+.participation { grid-area: participation; }
+.benefits { grid-area: benefits; }
+.requirements { grid-area: requirements; }
+footer { grid-area: footer; }
+.main::after { grid-area: black-box; }
+
+// sidebar > wrapper grid area
+.design-selection { grid-area: design-selection; }
+.design-archives { grid-area: archives; }
+.zen-resources { grid-area: resources; }
+
+// design-selection grid area
+.design-selection h3 { grid-area: design-h3; }
+.design-selection nav { grid-area: design-nav; }
+
+// design-selection grid area
+.design-archives h3 { grid-area: archive-h3; }
+.design-archives nav { grid-area: archive-nav; }
+
+// participation grid area
+.explanation h3 { grid-area: exp-h3; }
+.explanation p:first-of-type { grid-area: exp-p1; }
+.explanation p:nth-of-type(2) { grid-area: exp-p2; }
+// participation grid area
+.participation h3 { grid-area: par-h3; }
+.participation p:first-of-type { grid-area: par-p1; }
+.participation p:nth-of-type(2) { grid-area: par-p2; }
+.participation p:nth-of-type(3) { grid-area: par-p3; }
+.participation::before { grid-area: par-dino; }
+
+// benefits grid area
+.benefits h3 { grid-area: b-h3; }
+.benefits p { grid-area: b-p; }
+
+// requirements grid area
+.requirements h3 { grid-area: req-h3; }
+.requirements p:first-of-type { grid-area: req-p1; }
+.requirements p:nth-of-type(2) { grid-area: req-p2; }
+.requirements p:nth-of-type(3) { grid-area: req-p3; }
+.requirements p:nth-of-type(4) { grid-area: req-p4; }
+.requirements p:nth-of-type(5) { grid-area: req-p5; }
+.requirements::after { grid-area: req-vol; }
+
+// zen-resources grid area
+.zen-resources h3 { grid-area: r-h3; }
+.zen-resources ul { grid-area: r-ul; }
+
+// design-selection > nav
+.design-selection a:first-child { grid-area: title; }
+.design-selection #text { grid-area: by; }
+.design-selection a:last-child { grid-area: author; }
+
+/* End of Naming Grid Areas */
+
+
+.page-wrapper {
+    @include mixins.set-grid($grid-gap, 1fr);
+    grid-template-areas:
+        "intro"
+        "main"
+        "sidebar";
+    @media screen and (min-width: $media-medium) {
+        @include mixins.set-grid(0, repeat(6, 1fr));
+        grid-template-areas:
+            "intro  intro   intro   intro   intro   intro"
+            "sidebar sidebar sidebar sidebar sidebar sidebar"
+            "main   main    main    main    main    main";
+    }
+}
+
+/* Intro section */
+.intro {
+    @include mixins.set-grid($grid-gap, repeat(3, 1fr));
+    grid-template-areas:
+    "header header header"
+    "summary summary summary"
+    "enlightenment enlightenment enlightenment";
+    @media screen and (min-width: $media-medium) {
+        @include mixins.set-grid(1em, repeat(8, 1fr));
+        grid-template-areas:
+            "header header header header header header header header"
+            ". enlightenment enlightenment enlightenment enlightenment . . ."
+            ". enlightenment enlightenment enlightenment enlightenment summary summary .";
+        .preamble {
+            align-self: center;
+        }
+    }
+}
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+header {
+    @include mixins.set-grid($grid-gap, repeat(4, 1fr));
+    grid-template-areas: "h1 h1 . ." "h2 h2 h2 .";
+    @media screen and (min-width: $media-medium) {
+        @include mixins.set-grid($grid-gap, repeat(6, 1fr));
+        grid-template-areas: "h1 h1 h2 h2 h2 h2";
+        h1 { min-width: max-content; }
+    }
+}
+/* End of Intro */
+
+
+/* Sidebar or Design, Archives, Resources Section */
+.wrapper {
+    @media screen and (min-width: $media-medium) {
+        @include mixins.set-grid($grid-gap, repeat(3, 1fr));
+        grid-template-areas:
+            "design-selection design-selection design-selection"
+            "archives  resources  resources";
+    }
+}
+
+.wrapper .design-selection {
+    @media screen and (min-width: $media-medium) {
+        @include mixins.set-grid($grid-gap, max-content 1fr);
+        grid-template-areas:
+            ".  design-nav"
+            "design-h3  design-nav";
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    a:last-child { padding-left: .5em; }
+    nav ul {
+        @include mixins.set-grid($grid-gap, repeat(2, 1fr));
+        @media screen and (min-width: $media-medium) {
+            @include mixins.set-grid($grid-gap, repeat(auto-fit, minmax(175px, 1fr)));
+        }
+        li {
+            @include mixins.set-grid($grid-gap, min-content 1fr);
+            margin: .5em;
+            
+            grid-template-areas:
+                "title title"
+                "by author";
+        }
+    }
+}
+
+.design-archives {
+    @include mixins.set-grid($grid-gap, 1fr 1fr 1fr);
+    grid-template-areas:  "archive-h3 archive-nav archive-nav";
+    h3 { align-self: center; }
+    nav {
+        align-self: center;
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            li {
+                display: flex;
+                a {
+                    width: max-content;
+                    margin: .5em;
+                }
+            }
+        }
+    }
+}
+
+.zen-resources {
+    // @media screen and (min-width: $media-medium) {
+        @include mixins.set-grid($grid-gap, max-content 1fr);
+        grid-template-areas:
+            "r-h3  r-ul";
+    // }
+    ul {
+        @include mixins.set-grid($grid-gap, repeat(auto-fit, minmax(200px, 1fr)));
+        li {
+            margin: .5em;
+        }
+    }
+}
+/* End of Sidebar */
+
+
+/* Main Section */
+.main {
+    // @media screen and (min-width: $media-small) {
+    @include mixins.set-grid($grid-gap, repeat(3, 1fr));
+        grid-template-areas: 
+        "explanation explanation explanation"
+        "participation participation participation"
+        "black-box black-box black-box"
+        "benefits benefits benefits"
+        "requirements requirements requirements"
+        "footer footer footer";
+    // }
+    @media screen and (min-width: $media-large) {
+        @include mixins.set-grid($grid-gap, repeat(8, 1fr));
+        grid-template-areas: 
+        ". explanation explanation explanation explanation explanation explanation ."
+        ". participation participation participation participation participation participation ."
+        "black-box black-box black-box . . . . ."
+        ". benefits benefits benefits benefits benefits benefits ."
+        ". requirements requirements requirements requirements requirements requirements ."
+        "footer footer footer footer footer footer footer footer";
+    }
+}
+
+.explanation {
+    @include mixins.set-grid($grid-gap, 1fr);
+    grid-template-areas:
+        "exp-h3"
+        "exp-p1"
+        "exp-p2";
+    @media screen and (min-width: $media-medium) {
+        @include mixins.set-grid(1em, repeat(2, 1fr));
+        grid-template-areas:
+            "exp-h3 exp-h3"
+            "exp-p1 exp-p2";
+    }
+}
+
+.participation {
+    @include mixins.set-grid($grid-gap, 1fr);
+    grid-template-rows: 70px auto;
+    grid-template-areas:
+        "par-h3"
+        "par-p1"
+        "par-p2"
+        "par-p3";
+    margin: 2em 0;
+    @media screen and (min-width: $media-medium) {
+        @include mixins.set-grid(1em, repeat(4, 1fr));
+        grid-template-areas:
+            "par-h3 par-h3 . ."
+            "par-p1 par-p1 par-p3 par-p3"
+            "par-p2 par-p2 par-p3 par-p3";
+        h3 {
+            align-self: end;
+            justify-self: start;
+        }
+    }
+}
+
+
+.requirements {
+    p:nth-of-type(5) {
+        margin-bottom: 5em;
+    }
+    @include mixins.set-grid($grid-gap, 1fr);
+    grid-template-areas: 
+        "req-h3"
+        "req-p1"
+        "req-p2"
+        "req-p3"
+        "req-p4"
+        "req-p5"
+        "req-vol"; 
+    @media screen and (min-width: $media-large) {
+        @include mixins.set-grid(1em, repeat(3, 1fr));
+        grid-template-areas: 
+            "req-h3 req-p1 req-p1"
+            "req-p5 req-p2 req-p2"
+            ". req-p3 req-p3"
+            "req-vol req-p4 req-p4";
+    }  
+}
+
+footer {
+    @include mixins.set-grid($grid-gap, repeat(5, 1fr));
+    justify-items: center;
+}
+/* End of Main */
+
+
+
+
+.benefits { 
+    p { align-self: center; }
+    @include mixins.set-grid($grid-gap, 1fr);
+    grid-template-areas: 
+        "b-h3"
+        "b-p"
+        "b-p";
+    @media screen and (min-width: $media-large) {
+    @include mixins.set-grid($grid-gap, repeat(3, 1fr));
+    grid-template-areas: 
+        "b-h3 b-p b-p";
+    }
+}
+
+/* Framework of Pseudo Elements */
+
+/* Black Square for Benefits Header */
+.main::after, .benefits {
+    grid-row: 3 / 4;
+    @media screen and (min-width: $media-medium){
+    grid-row: 3 / 5;
+    }
+}
+
+.main::after {
+    z-index: -1;
+}
+/* End of Black Square */
+
+
+/* Dino - Yellow */
+// Dino - Yellow Dino large screen
+.wrapper::before {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    justify-self: start;
+    align-self: end;
+    transform: scaleX(-1) translate(-90px, -60px) rotate(320deg);
+}
+
+// Dino - Yellow small screen 
+.intro::before {
+    grid-row: 1 / 2;
+    grid-column: 2 / 4;
+    justify-self: end;
+    align-self: end;
+    transform: 
+        translateX(-5vw)
+        rotate(345deg) 
+        // translate(50px, -50px)
+    ;
+}
+/* End of Yellow Dino */
+
+// Dino - Orange 
+.intro::after {
+    grid-row: 1 / 3;
+    grid-column: 6 / 8;
+    justify-self: center;
+    align-self: end;
+}
+
+// Leaf {
+.explanation::before {
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+    justify-self: end;
+    align-self: start;
+    transform: translate(0, -40px);
+    @media screen and (min-width:$media-medium) {
+        grid-column: 2 / 3;
+        justify-self: center;
+        transform: translate(100px, -40px);
+    }
+}
+
+// Dino - Egg
+.participation::before {
+    grid-row: 1 / 2;
+    grid-column: 1;
+    justify-self: end;
+    align-self: start;
+    // order: 2;
+    transform: translateY(-60px);
+    float: right;
+    @media screen and (min-width:$media-medium) {
+        grid-row: 1 / 3;
+        grid-column: 4 / 6;
+        justify-self: start;
+        align-self: start;
+    }
+}
+
+// Dino - Pink
+.benefits::before {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: end;
+    align-self: start;
+    transform: translateY(-145px);
+    @media screen and (min-width:$media-medium){
+        transform: translateY(-175px);
+    }
+    @media screen and (min-width:$media-large){
+        grid-column: 3;
+        float: right;
+        transform: translateY(-175px);
+    }
+}
+
+// Tree
+.benefits::after {
+    grid-row: 1;
+    grid-column: 1;
+    align-self: start;
+    justify-content: start;
+    position: absolute;
+    order: 1;
+    float: left;
+    transform:  translate(-5vh, -115px) rotate(15deg);
+    @media screen and (min-width:$media-large){
+        transform: translate(-200px, -115px) rotate(15deg) ;      
+    }
+}
+
+/* Volcano in Requirements area */
+// Volcano
+.requirements::after {
+    align-self: end;
+    justify-self: center;
+    order: 1;
+}
+
+// Lava
+.requirements::before {
+    grid-row: 7 / 8;
+    grid-column: 1 / 3;
+    align-self: end;
+    justify-self: center;
+    order: 0;
+    @media screen and (min-width:$media-large){
+        grid-row: 4 / 5;
+        grid-column: 1 / 2;
+    }
+}
+/* End of Volcano */

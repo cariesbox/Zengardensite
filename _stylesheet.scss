@@ -1,0 +1,303 @@
+// Stylesheet so styles come before other sheets on final stylsheet
+
+@use 'variables' as *;
+@use 'mixins';
+@use 'framework';
+@use 'images';
+@use 'animations';
+
+/* General Settings */
+.main > *, 
+.intro div, 
+.wrapper div {
+    padding: calc($div-padding/2) $div-padding;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url("../zengarden/images/background-leaves.png");
+    background-color: $color-background;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: $font-body;
+}
+
+h1, h2, h3 {
+    font-family: $font-headers;
+    font-size: $font-size-headers;
+    color: $light;
+    font-weight: lighter;
+    z-index: 100;
+}
+
+h1, h2 {
+    padding: calc($div-padding/2);
+}
+
+h1 {
+    padding-bottom: calc($div-padding/4);
+}
+
+h2 {
+    padding-top: 0;
+}
+
+h3 {
+    text-transform: uppercase;
+}
+
+p {
+    margin: 0 auto;
+    padding: 0 0 1em 0;
+    font-size: $font-size-body;
+    max-width: 70ch;
+    text-align: justify;
+    z-index: 100;
+}
+
+a { text-decoration: none; }
+/* End of General Settings */
+
+
+/* Header area */
+
+//adds colon and space afterwards to H1
+h1::after {
+    content:":";
+}
+
+.intro {
+    header {
+        background-color: $color-primary;
+        h1,
+        h2 { 
+            font-size: 2em; margin: 0;
+        }
+    }
+}
+
+/* End of Header area */
+
+
+/* Intro area */
+#zen-preamble {
+    margin: 1em;
+    padding: 0 1em 2em 1em;
+    border-bottom: 10px solid $color-accent4;
+
+}
+
+.preamble, .explanation {
+    h3 {
+    color: $dark;
+    font-weight: bold;
+    }
+}
+
+.summary a {
+    color: $dark;
+}
+/* End of Into area */
+
+
+/* Main area */
+.participation {
+    color: $light;
+    padding-bottom: 3em;
+    h3 { 
+        text-align: left;
+    }
+    a { color: $light; }
+    background-image: linear-gradient(to bottom, $color-accent1, $dark);
+}
+
+.benefits {
+    margin: 2em;
+    @include mixins.border ($color-accent4,$border-type,$border-thickness);
+    h3 {
+        text-align: center;
+        margin: 0;
+        padding: 2em;
+    }
+}
+
+.requirements {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    h3 {
+        width: max-content;
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: 2em;
+        background-color: $color-accent3;
+    }
+    a {
+        color: $dark;
+    }
+}
+
+// Black Square for Benefits area
+.main::after {
+    content: "";
+    display: block;
+    background-color: $dark;
+    height: 170px;
+    width: 100%;
+    min-width: 415px;
+}
+
+footer {
+    margin-bottom: 15em;
+    background-color: $color-accent1;
+    margin-bottom: 0;
+    a {
+        text-align: center;
+        color: white;         
+    }
+}
+
+/* Sidebar or Selecta Design and Archive section */
+.sidebar {
+    li { list-style: none; }
+}
+
+.wrapper {
+    margin: 0;
+    @include mixins.same-background($color-accent3);
+    color: $light;
+    li { 
+        white-space: nowrap; 
+        overflow: visible;
+        }
+    a { color: $light; }
+}
+
+.design-selection {
+    margin: 0;
+    @include mixins.same-background($color-accent2);
+    h3 { margin-top: 0; }
+    ul { align-content: center; }
+}
+
+.design-archives ul {
+    padding-left: $div-padding;
+    align-content: center;
+}
+
+.zen-resources {
+    @include mixins.same-background($color-accent4);
+    h3 { align-self: center; }
+    ul { padding-left: 1em; }
+    li { align-self: center; }
+}
+/* End of Sidebar */
+
+
+
+
+
+@media screen and (min-width:$media-medium) {
+
+    .intro {
+        h1 { 
+            text-align: right;
+        }
+        h2 {
+            padding: calc($div-padding/2);
+            padding-bottom: calc($div-padding/4);
+            padding-left: 0;
+        }
+        div {
+            padding: 0;
+            .preamble {
+                margin: 0;
+            }
+        }
+    }
+
+    #zen-preamble {
+        margin: 0;
+        padding: 0;
+        border-bottom: none;
+    }
+
+    #design-archives {
+        padding-right: 0px;
+        ul {
+            padding-left: .25em;
+        }
+    }
+
+    .zen-resources {
+        @include mixins.same-background($color-accent3);
+        ul { padding-left: $div-padding; }
+    }
+
+    .explanation {
+        margin-bottom: calc(-1em);
+    }
+    
+    .participation {
+        margin: 50px 0px 75px 0px;
+        padding-bottom: 2em;
+        p {
+            padding-bottom: 0;
+        }
+    }
+
+    .design-selection ul {
+        padding-left: $div-padding;
+    }
+
+    footer {
+        background-color: $color-accent4;
+    }
+
+}
+
+
+
+
+
+@media screen and (min-width:$media-large) {
+
+    // Black Square - Benefits
+    .main::after {
+        height: 261px;
+    }
+
+    .main::after {
+        background-color: $dark;
+    }
+
+    .benefits {
+        h3 {
+            align-self: center;
+            justify-self: left;
+        }
+        p {
+            padding-left: 1em;
+        }
+    }
+
+    .requirements {
+        margin-top: 2em;
+        h3 {
+            margin-bottom: 0;
+        }
+        p{
+            padding-bottom: 0;
+        }
+    }
+
+    footer {
+        margin-bottom: 0;
+        a {
+            color: white;         
+        }
+    } 
+}

@@ -1,0 +1,1041 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2&family=Rubik+Vinyl");
+/* Naming Grid Areas */
+.intro {
+  grid-area: intro;
+}
+
+.main {
+  grid-area: main;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+header {
+  grid-area: header;
+}
+
+.summary {
+  grid-area: summary;
+}
+
+.preamble {
+  grid-area: enlightenment;
+}
+
+.intro h1 {
+  grid-area: h1;
+}
+
+.intro h2 {
+  grid-area: h2;
+}
+
+.explanation {
+  grid-area: explanation;
+}
+
+.participation {
+  grid-area: participation;
+}
+
+.benefits {
+  grid-area: benefits;
+}
+
+.requirements {
+  grid-area: requirements;
+}
+
+footer {
+  grid-area: footer;
+}
+
+.main::after {
+  grid-area: black-box;
+}
+
+.design-selection {
+  grid-area: design-selection;
+}
+
+.design-archives {
+  grid-area: archives;
+}
+
+.zen-resources {
+  grid-area: resources;
+}
+
+.design-selection h3 {
+  grid-area: design-h3;
+}
+
+.design-selection nav {
+  grid-area: design-nav;
+}
+
+.design-archives h3 {
+  grid-area: archive-h3;
+}
+
+.design-archives nav {
+  grid-area: archive-nav;
+}
+
+.explanation h3 {
+  grid-area: exp-h3;
+}
+
+.explanation p:first-of-type {
+  grid-area: exp-p1;
+}
+
+.explanation p:nth-of-type(2) {
+  grid-area: exp-p2;
+}
+
+.participation h3 {
+  grid-area: par-h3;
+}
+
+.participation p:first-of-type {
+  grid-area: par-p1;
+}
+
+.participation p:nth-of-type(2) {
+  grid-area: par-p2;
+}
+
+.participation p:nth-of-type(3) {
+  grid-area: par-p3;
+}
+
+.participation::before {
+  grid-area: par-dino;
+}
+
+.benefits h3 {
+  grid-area: b-h3;
+}
+
+.benefits p {
+  grid-area: b-p;
+}
+
+.requirements h3 {
+  grid-area: req-h3;
+}
+
+.requirements p:first-of-type {
+  grid-area: req-p1;
+}
+
+.requirements p:nth-of-type(2) {
+  grid-area: req-p2;
+}
+
+.requirements p:nth-of-type(3) {
+  grid-area: req-p3;
+}
+
+.requirements p:nth-of-type(4) {
+  grid-area: req-p4;
+}
+
+.requirements p:nth-of-type(5) {
+  grid-area: req-p5;
+}
+
+.requirements::after {
+  grid-area: req-vol;
+}
+
+.zen-resources h3 {
+  grid-area: r-h3;
+}
+
+.zen-resources ul {
+  grid-area: r-ul;
+}
+
+.design-selection a:first-child {
+  grid-area: title;
+}
+
+.design-selection #text {
+  grid-area: by;
+}
+
+.design-selection a:last-child {
+  grid-area: author;
+}
+
+/* End of Naming Grid Areas */
+.page-wrapper {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 1fr;
+  grid-template-areas: "intro" "main" "sidebar";
+}
+@media screen and (min-width: 670px) {
+  .page-wrapper {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: "intro  intro   intro   intro   intro   intro" "sidebar sidebar sidebar sidebar sidebar sidebar" "main   main    main    main    main    main";
+  }
+}
+
+/* Intro section */
+.intro {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "header header header" "summary summary summary" "enlightenment enlightenment enlightenment";
+}
+@media screen and (min-width: 670px) {
+  .intro {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas: "header header header header header header header header" ". enlightenment enlightenment enlightenment enlightenment . . ." ". enlightenment enlightenment enlightenment enlightenment summary summary .";
+  }
+  .intro .preamble {
+    align-self: center;
+  }
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+header {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "h1 h1 . ." "h2 h2 h2 .";
+}
+@media screen and (min-width: 670px) {
+  header {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: "h1 h1 h2 h2 h2 h2";
+  }
+  header h1 {
+    min-width: max-content;
+  }
+}
+
+/* End of Intro */
+/* Sidebar or Design, Archives, Resources Section */
+@media screen and (min-width: 670px) {
+  .wrapper {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "design-selection design-selection design-selection" "archives  resources  resources";
+  }
+}
+
+@media screen and (min-width: 670px) {
+  .wrapper .design-selection {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: max-content 1fr;
+    grid-template-areas: ".  design-nav" "design-h3  design-nav";
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+.wrapper .design-selection a:last-child {
+  padding-left: 0.5em;
+}
+.wrapper .design-selection nav ul {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media screen and (min-width: 670px) {
+  .wrapper .design-selection nav ul {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  }
+}
+.wrapper .design-selection nav ul li {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: min-content 1fr;
+  margin: 0.5em;
+  grid-template-areas: "title title" "by author";
+}
+
+.design-archives {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "archive-h3 archive-nav archive-nav";
+}
+.design-archives h3 {
+  align-self: center;
+}
+.design-archives nav {
+  align-self: center;
+}
+.design-archives nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.design-archives nav ul li {
+  display: flex;
+}
+.design-archives nav ul li a {
+  width: max-content;
+  margin: 0.5em;
+}
+
+.zen-resources {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: max-content 1fr;
+  grid-template-areas: "r-h3  r-ul";
+}
+.zen-resources ul {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.zen-resources ul li {
+  margin: 0.5em;
+}
+
+/* End of Sidebar */
+/* Main Section */
+.main {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "explanation explanation explanation" "participation participation participation" "black-box black-box black-box" "benefits benefits benefits" "requirements requirements requirements" "footer footer footer";
+}
+@media screen and (min-width: 960px) {
+  .main {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas: ". explanation explanation explanation explanation explanation explanation ." ". participation participation participation participation participation participation ." "black-box black-box black-box . . . . ." ". benefits benefits benefits benefits benefits benefits ." ". requirements requirements requirements requirements requirements requirements ." "footer footer footer footer footer footer footer footer";
+  }
+}
+
+.explanation {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 1fr;
+  grid-template-areas: "exp-h3" "exp-p1" "exp-p2";
+}
+@media screen and (min-width: 670px) {
+  .explanation {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "exp-h3 exp-h3" "exp-p1 exp-p2";
+  }
+}
+
+.participation {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 1fr;
+  grid-template-rows: 70px auto;
+  grid-template-areas: "par-h3" "par-p1" "par-p2" "par-p3";
+  margin: 2em 0;
+}
+@media screen and (min-width: 670px) {
+  .participation {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "par-h3 par-h3 . ." "par-p1 par-p1 par-p3 par-p3" "par-p2 par-p2 par-p3 par-p3";
+  }
+  .participation h3 {
+    align-self: end;
+    justify-self: start;
+  }
+}
+
+.requirements {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 1fr;
+  grid-template-areas: "req-h3" "req-p1" "req-p2" "req-p3" "req-p4" "req-p5" "req-vol";
+}
+.requirements p:nth-of-type(5) {
+  margin-bottom: 5em;
+}
+@media screen and (min-width: 960px) {
+  .requirements {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "req-h3 req-p1 req-p1" "req-p5 req-p2 req-p2" ". req-p3 req-p3" "req-vol req-p4 req-p4";
+  }
+}
+
+footer {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+}
+
+/* End of Main */
+.benefits {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 1fr;
+  grid-template-areas: "b-h3" "b-p" "b-p";
+}
+.benefits p {
+  align-self: center;
+}
+@media screen and (min-width: 960px) {
+  .benefits {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "b-h3 b-p b-p";
+  }
+}
+
+/* Framework of Pseudo Elements */
+/* Black Square for Benefits Header */
+.main::after, .benefits {
+  grid-row: 3/4;
+}
+@media screen and (min-width: 670px) {
+  .main::after, .benefits {
+    grid-row: 3/5;
+  }
+}
+
+.main::after {
+  z-index: -1;
+}
+
+/* End of Black Square */
+/* Dino - Yellow */
+.wrapper::before {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  justify-self: start;
+  align-self: end;
+  transform: scaleX(-1) translate(-90px, -60px) rotate(320deg);
+}
+
+.intro::before {
+  grid-row: 1/2;
+  grid-column: 2/4;
+  justify-self: end;
+  align-self: end;
+  transform: translateX(-5vw) rotate(345deg);
+}
+
+/* End of Yellow Dino */
+.intro::after {
+  grid-row: 1/3;
+  grid-column: 6/8;
+  justify-self: center;
+  align-self: end;
+}
+
+.explanation::before {
+  grid-row: 1/3;
+  grid-column: 1/2;
+  justify-self: end;
+  align-self: start;
+  transform: translate(0, -40px);
+}
+@media screen and (min-width: 670px) {
+  .explanation::before {
+    grid-column: 2/3;
+    justify-self: center;
+    transform: translate(100px, -40px);
+  }
+}
+
+.participation::before {
+  grid-row: 1/2;
+  grid-column: 1;
+  justify-self: end;
+  align-self: start;
+  transform: translateY(-60px);
+  float: right;
+}
+@media screen and (min-width: 670px) {
+  .participation::before {
+    grid-row: 1/3;
+    grid-column: 4/6;
+    justify-self: start;
+    align-self: start;
+  }
+}
+
+.benefits::before {
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: end;
+  align-self: start;
+  transform: translateY(-145px);
+}
+@media screen and (min-width: 670px) {
+  .benefits::before {
+    transform: translateY(-175px);
+  }
+}
+@media screen and (min-width: 960px) {
+  .benefits::before {
+    grid-column: 3;
+    float: right;
+    transform: translateY(-175px);
+  }
+}
+
+.benefits::after {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: start;
+  justify-content: start;
+  position: absolute;
+  order: 1;
+  float: left;
+  transform: translate(-5vh, -115px) rotate(15deg);
+}
+@media screen and (min-width: 960px) {
+  .benefits::after {
+    transform: translate(-200px, -115px) rotate(15deg);
+  }
+}
+
+/* Volcano in Requirements area */
+.requirements::after {
+  align-self: end;
+  justify-self: center;
+  order: 1;
+}
+
+.requirements::before {
+  grid-row: 7/8;
+  grid-column: 1/3;
+  align-self: end;
+  justify-self: center;
+  order: 0;
+}
+@media screen and (min-width: 960px) {
+  .requirements::before {
+    grid-row: 4/5;
+    grid-column: 1/2;
+  }
+}
+
+/* End of Volcano */
+/* Images */
+@media screen and (min-width: 670px) {
+  .intro::after {
+    content: "";
+    background-image: url("../zengarden/images/dinoorange.svg");
+    background-repeat: no-repeat;
+    width: 40vw;
+    height: 40vw;
+    order: 1;
+    max-width: 220px;
+    max-height: 240px;
+  }
+}
+@media screen and (max-width: 669px) {
+  .intro::before {
+    content: "";
+    background-image: url("../zengarden/images/dinoyellow.svg");
+    background-repeat: no-repeat;
+    width: 30vw;
+    height: 31vw;
+    order: 1;
+    min-width: 140px;
+    min-height: 150px;
+  }
+}
+@media screen and (min-width: 670px) {
+  .wrapper::before {
+    content: "";
+    background-image: url("../zengarden/images/dinoyellow.svg");
+    background-repeat: no-repeat;
+    width: 30vw;
+    height: 31vw;
+    order: 1;
+    max-width: 160px;
+    max-height: 180px;
+  }
+}
+.explanation::before {
+  content: "";
+  background-image: url("../zengarden/images/leaf.svg");
+  background-repeat: no-repeat;
+  width: 20vw;
+  height: 20vw;
+  order: 1;
+  max-width: 90px;
+  min-width: 70px;
+  max-height: 90px;
+  min-height: 70px;
+}
+
+.participation::before {
+  content: "";
+  background-image: url("../zengarden/images/dinoegg.svg");
+  background-repeat: no-repeat;
+  width: 17vw;
+  height: 21vw;
+  order: 1;
+  max-width: 120px;
+  min-width: 100px;
+  max-height: 150px;
+  min-height: 110px;
+}
+
+.benefits::before {
+  content: "";
+  background-image: url("../zengarden/images/dinopink.svg");
+  background-repeat: no-repeat;
+  width: 170px;
+  height: 130px;
+  order: 1;
+}
+@media screen and (min-width: 670px) {
+  .benefits::before {
+    width: 210px;
+    height: 160px;
+  }
+}
+
+.benefits::after {
+  content: "";
+  background-image: url("../zengarden/images/palmtree.svg");
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 230px;
+  order: 1;
+}
+@media screen and (min-width: 960px) {
+  .benefits::after {
+    width: 250px;
+    height: 320px;
+  }
+}
+
+.requirements::after {
+  content: "";
+  background-image: url("../zengarden/images/volcanobase.svg");
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 170px;
+  order: 1;
+}
+
+.requirements::before {
+  content: "";
+  background-image: url("../zengarden/images/volcanosplash.svg");
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 142px;
+  order: 1;
+}
+
+.wrapper li:hover, footer a:hover {
+  animation: shake 0.25s ease-in-out 1;
+  overflow: visible;
+}
+
+@keyframes shake {
+  0% {
+    padding: 0;
+  }
+  25% {
+    padding-left: 30px;
+  }
+  50% {
+    padding-left: 0;
+  }
+  75% {
+    padding-left: 20px;
+  }
+  100% {
+    padding: 0;
+  }
+}
+.participation:hover::before {
+  animation: wobble 5s ease-in-out;
+}
+
+@keyframes wobble {
+  0% {
+    transform: translate(0%, -60px);
+  }
+  15% {
+    transform: translate(-25%, -60px) rotate(-5deg);
+  }
+  30% {
+    transform: translate(20%, -60px) rotate(3deg);
+  }
+  45% {
+    transform: translate(-15%, -60px) rotate(-3deg);
+  }
+  60% {
+    transform: translate(10%, -60px) rotate(2deg);
+  }
+  75% {
+    transform: translate(-5%, -60px) rotate(-1deg);
+  }
+  100% {
+    transform: translate(0%, -60px);
+  }
+}
+.benefits:hover::before {
+  animation: bounce-small 2s ease-out;
+}
+
+@media screen and (min-width: 670px) {
+  .benefits:hover::before {
+    animation: bounce-large 2s ease-out;
+  }
+}
+@keyframes bounce-small {
+  0%, 20%, 50%, 75%, 80%, 100% {
+    transform: translateY(-145px);
+  }
+  40% {
+    transform: translateY(-185px);
+  }
+  60% {
+    transform: translateY(-165px);
+  }
+}
+@keyframes bounce-large {
+  0%, 20%, 50%, 75%, 80%, 100% {
+    transform: translateY(-175px);
+  }
+  40% {
+    transform: translateY(-235px);
+  }
+  60% {
+    transform: translateY(-215px);
+  }
+}
+.requirements:hover::before {
+  animation: splash 1.5s ease-in forwards;
+}
+
+@keyframes splash {
+  0% {
+    transform: translateY(-80px) scale(0.5);
+  }
+  50%, 53% {
+    transform: translateY(-200px) scale(1);
+  }
+  100% {
+    transform: translateY(-80px) scale(1);
+  }
+}
+/* General Settings */
+.main > *,
+.intro div,
+.wrapper div {
+  padding: 1em 2em;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-image: url("../zengarden/images/background-leaves.png");
+  background-color: #DEECDA;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: "Exo 2", sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: "Rubik Vinyl", cursive;
+  font-size: 1.5em;
+  color: #FFF;
+  font-weight: lighter;
+  z-index: 100;
+}
+
+h1, h2 {
+  padding: 1em;
+}
+
+h1 {
+  padding-bottom: 0.5em;
+}
+
+h2 {
+  padding-top: 0;
+}
+
+h3 {
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0 auto;
+  padding: 0 0 1em 0;
+  font-size: 1em;
+  max-width: 70ch;
+  text-align: justify;
+  z-index: 100;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* End of General Settings */
+/* Header area */
+h1::after {
+  content: ":";
+}
+
+.intro header {
+  background-color: #309E6D;
+}
+.intro header h1,
+.intro header h2 {
+  font-size: 2em;
+  margin: 0;
+}
+
+/* End of Header area */
+/* Intro area */
+#zen-preamble {
+  margin: 1em;
+  padding: 0 1em 2em 1em;
+  border-bottom: 10px solid #C93565;
+}
+
+.preamble h3, .explanation h3 {
+  color: #000;
+  font-weight: bold;
+}
+
+.summary a {
+  color: #000;
+}
+
+/* End of Into area */
+/* Main area */
+.participation {
+  color: #FFF;
+  padding-bottom: 3em;
+  background-image: linear-gradient(to bottom, #106C42, #000);
+}
+.participation h3 {
+  text-align: left;
+}
+.participation a {
+  color: #FFF;
+}
+
+.benefits {
+  margin: 2em;
+  border: 0.5em solid #C93565;
+}
+.benefits h3 {
+  text-align: center;
+  margin: 0;
+  padding: 2em;
+}
+
+.requirements {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+.requirements h3 {
+  width: max-content;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  padding: 2em;
+  background-color: #E56B44;
+}
+.requirements a {
+  color: #000;
+}
+
+.main::after {
+  content: "";
+  display: block;
+  background-color: #000;
+  height: 170px;
+  width: 100%;
+  min-width: 415px;
+}
+
+footer {
+  margin-bottom: 15em;
+  background-color: #106C42;
+  margin-bottom: 0;
+}
+footer a {
+  text-align: center;
+  color: white;
+}
+
+/* Sidebar or Selecta Design and Archive section */
+.sidebar li {
+  list-style: none;
+}
+
+.wrapper {
+  margin: 0;
+  background-color: #E56B44;
+  color: #FFF;
+}
+.wrapper > h3 {
+  background-color: #E56B44;
+}
+.wrapper li {
+  white-space: nowrap;
+  overflow: visible;
+}
+.wrapper a {
+  color: #FFF;
+}
+
+.design-selection {
+  margin: 0;
+  background-color: #5BB527;
+}
+.design-selection > h3 {
+  background-color: #5BB527;
+}
+.design-selection h3 {
+  margin-top: 0;
+}
+.design-selection ul {
+  align-content: center;
+}
+
+.design-archives ul {
+  padding-left: 2em;
+  align-content: center;
+}
+
+.zen-resources {
+  background-color: #C93565;
+}
+.zen-resources > h3 {
+  background-color: #C93565;
+}
+.zen-resources h3 {
+  align-self: center;
+}
+.zen-resources ul {
+  padding-left: 1em;
+}
+.zen-resources li {
+  align-self: center;
+}
+
+/* End of Sidebar */
+@media screen and (min-width: 670px) {
+  .intro h1 {
+    text-align: right;
+  }
+  .intro h2 {
+    padding: 1em;
+    padding-bottom: 0.5em;
+    padding-left: 0;
+  }
+  .intro div {
+    padding: 0;
+  }
+  .intro div .preamble {
+    margin: 0;
+  }
+  #zen-preamble {
+    margin: 0;
+    padding: 0;
+    border-bottom: none;
+  }
+  #design-archives {
+    padding-right: 0px;
+  }
+  #design-archives ul {
+    padding-left: 0.25em;
+  }
+  .zen-resources {
+    background-color: #E56B44;
+  }
+  .zen-resources > h3 {
+    background-color: #E56B44;
+  }
+  .zen-resources ul {
+    padding-left: 2em;
+  }
+  .explanation {
+    margin-bottom: -1em;
+  }
+  .participation {
+    margin: 50px 0px 75px 0px;
+    padding-bottom: 2em;
+  }
+  .participation p {
+    padding-bottom: 0;
+  }
+  .design-selection ul {
+    padding-left: 2em;
+  }
+  footer {
+    background-color: #C93565;
+  }
+}
+@media screen and (min-width: 960px) {
+  .main::after {
+    height: 261px;
+  }
+  .main::after {
+    background-color: #000;
+  }
+  .benefits h3 {
+    align-self: center;
+    justify-self: left;
+  }
+  .benefits p {
+    padding-left: 1em;
+  }
+  .requirements {
+    margin-top: 2em;
+  }
+  .requirements h3 {
+    margin-bottom: 0;
+  }
+  .requirements p {
+    padding-bottom: 0;
+  }
+  footer {
+    margin-bottom: 0;
+  }
+  footer a {
+    color: white;
+  }
+}
+/* CSS Zen Garden */
+
+/*# sourceMappingURL=style.css.map */

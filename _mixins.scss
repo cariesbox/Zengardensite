@@ -1,0 +1,30 @@
+// MIXINS 
+@use 'variables' as *;
+
+
+
+@mixin same-background ($background-color){
+    background-color: $background-color;
+    > h3 {
+        background-color: $background-color;
+    }
+}
+
+@mixin border($border-color: #000, $border-type: solid, $border-thickness: 2px){
+    border: $border-thickness $border-type $border-color;
+}
+
+@mixin set-grid($grid-gap, $grid-columns){
+    display: grid;
+    grid-gap: $grid-gap;
+    grid-template-columns: $grid-columns;
+}
+
+@mixin set-image ($image, $width, $height){
+    content: '';
+    background-image: url($image);
+    background-repeat: no-repeat;
+    width: $width;
+    height: $height;
+    order: 1;
+}

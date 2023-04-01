@@ -1,0 +1,79 @@
+@use 'variables' as *;
+@use 'mixins';
+
+/* Images */
+
+//Dino - Orange
+@media screen and (min-width: $media-medium) {
+    .intro::after {
+        @include mixins.set-image("../zengarden/images/dinoorange.svg", 40vw, 40vw);
+        max-width: 220px;
+        max-height: 240px;
+    }
+}
+
+//Dino - Yellow (small screen)
+@media screen and (max-width: calc($media-medium - 1px)) {
+    .intro::before {
+        @include mixins.set-image("../zengarden/images/dinoyellow.svg", 30vw, 31vw);
+        min-width: 140px;
+        min-height: 150px;
+    }
+}
+
+// Dino - Yellow (large screen)
+@media screen and (min-width: $media-medium) {
+    .wrapper::before {
+        @include mixins.set-image("../zengarden/images/dinoyellow.svg", 30vw, 31vw);
+        max-width: 160px;
+        max-height: 180px;
+    }
+}
+
+
+// Leaf 
+.explanation::before {
+    @include mixins.set-image("../zengarden/images/leaf.svg", 20vw, 20vw);
+    max-width: 90px;
+    min-width: 70px;
+    max-height: 90px;
+    min-height: 70px;
+}
+
+// Dino - Egg
+.participation::before {
+    @include mixins.set-image("../zengarden/images/dinoegg.svg", 17vw, 21vw);
+    max-width: 120px;
+    min-width: 100px;
+    max-height: 150px;
+    min-height: 110px;
+}
+
+// Dino - Pink
+.benefits::before {
+    @include mixins.set-image("../zengarden/images/dinopink.svg", 170px, 130px);
+    @media screen and (min-width: $media-medium) {
+        width: 210px;
+        height: 160px;
+    }
+}
+
+// Tree
+.benefits::after {
+    @include mixins.set-image("../zengarden/images/palmtree.svg", 180px, 230px);
+    @media screen and (min-width: $media-large) {
+        width: 250px;
+        height: 320px;
+    }
+}
+
+
+// Volcano
+.requirements::after {
+    @include mixins.set-image("../zengarden/images/volcanobase.svg", 300px, 170px);
+}
+
+// Lava
+.requirements::before {
+    @include mixins.set-image("../zengarden/images/volcanosplash.svg", 200px, 142px);
+}

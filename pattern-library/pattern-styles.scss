@@ -1,0 +1,78 @@
+/* Pattern-Library Stylesheet */
+@use 'variables' as *;
+@use 'atoms';
+@use 'molecules';
+@use 'organisms';
+
+
+* {
+    box-sizing: border-box;
+  }
+  html {
+    background-color: $color-background;
+    padding: 5%;
+  }
+  
+  body {
+    font-family: $font-body;
+    font-size: 1em;
+    background-color: $color-primary;
+    margin: 0;
+    padding: 1em;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: $font-headers;
+  }
+  
+  section {
+    background-color: white;
+    padding: 1em;
+    margin: 1em;
+  }
+  .colors {
+    @include atoms.set-flex();
+    > h3 {
+      width: 100%;
+      flex: 1 0 100%;
+    }
+    > figure {
+      margin: 0;
+      flex: 1 1;
+    }
+  }
+  .swatch {
+    width: 100%;
+    height: 100px;
+    border: 1px solid;
+  }
+  .primary {
+    background-color: $color-primary;
+  }
+  .accent1 {
+    background-color: $color-accent1;
+  }
+  .accent2 {
+    background-color: $color-accent2;
+  }
+  .accent3 {
+    background-color: $color-accent3;
+  }
+  .accent4 {
+    background-color: $color-accent4;
+  }
+
+  .text-dark {
+    background-color: $text-dark;
+  }
+  .element {
+    border: 1px solid;
+    margin: 0.5em;
+    padding: 1em;
+  }
+  .uppercase {
+    @include atoms.uppercase;
+  }
+  .uppercase-light {
+    @include atoms.uppercase($text-light);
+  }
